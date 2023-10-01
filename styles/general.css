@@ -1,0 +1,104 @@
+/* ------------------------------------Settings---------------------------------------- */
+
+* {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    font-family: "Roboto";
+}
+
+*{
+    User-select: none;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.page {
+    background-color: black;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+/* ------------------------------------Header---------------------------------------- */
+
+.header {
+    background-color: #1D1D1D;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.header a:hover {
+    transition: 1s;
+    color: #FFD325;
+}
+
+.header-logo p {
+    font-size: 30px;
+}
+
+svg:hover *{
+    stroke: #FFD325;
+}
+
+.header-logo p:hover {
+    transition: 1s;
+    color: #FFD325;
+}
+
+.header-logo span {
+    font-size: 30px;
+    color: #FFD325;
+}
+
+.header-logo span:hover {
+    transition: 1s;
+    color:rgb(189, 83, 8);
+}
+
+.header-nav-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-nav-list-item:not(:last-child) {
+    margin-right: 60px;
+}
+
+/* --------------------------------------------H1-------------------------*/
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* ----------------------------------Button----------------------------------------------*/
+
+button {
+    padding: 15px 60px;
+    background-color: #5A5C92;
+    border: 0;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5A5CD1;
+    transition: 1s;
+}

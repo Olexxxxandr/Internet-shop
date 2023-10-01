@@ -1,0 +1,279 @@
+/* ------------------------------------Caurosel---------------------------------------- */
+
+.caurosel-block {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#caurosel {
+    width: 960px;
+    margin: 0 auto;
+    border: 1px solid #555555;
+    height: 490px;
+}
+
+#caurosel img {
+    width: 100%;
+    height: 100%;
+    animation-name: Appearance;
+    animation-duration: 1s;
+}
+
+.arrow {
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.appear {
+    opacity: 1;
+}
+
+.arrow-right {
+    padding: 30px;
+}
+
+.arrow-left {
+    padding: 30px;
+}
+  
+@keyframes Appearance {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/* ------------------------------------Categories---------------------------------------- */
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    margin-bottom: 50px;
+}
+
+.category {
+    text-align: center;
+    height: 400px;
+    width: 292px;
+    border: 1px solid gray;
+    background-color: #1D1D1D;
+}
+
+.category-name {
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.category img {
+    width: 225px;
+    margin: 20px;
+}
+
+.category button:hover {
+    transition: 1s;
+    background-color: #5A4192;
+}
+
+
+/* ------------------------------------Accessories---------------------------------------- */
+
+.accessories-block span {
+    font-size: 40px;
+    font-weight: bold;
+    color: #FFD325;
+}
+
+.accessories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    margin-bottom: 50px;
+}
+
+.acc {
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    height: 300px;
+    width: 292px;
+    border: 1px solid gray;
+    background-color: #1D1D1D;
+}
+
+.acc:hover {
+    border: 5px solid gray;
+    transition: 0.1s;
+}
+
+.acc img {
+    margin-top: 20px;
+}
+
+/* ------------------------------------Form---------------------------------------- */
+
+form {
+    height: 500px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    margin-bottom: 30px;
+}
+
+form span {
+    display: none;
+    font-size: 12px;
+    font-weight: bold;
+    color: red;
+}
+
+label {
+    box-sizing: border-box;
+    margin: 20px;
+}
+
+.form-inputs {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-inputs input {
+    background-color: transparent;
+    border: 2px solid white;
+    font-size: 18px;
+    padding: 10px 20px;
+    width: 80%;
+}
+
+.form-inputs input:focus:active {
+    background-color: transparent;
+}
+
+form p {
+    font-size: 25px;
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.button {
+    margin: 30px 0;
+    text-align: center;
+}
+
+
+/* ------------------------------------Info---------------------------------------- */
+
+.info {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.info-text {
+    margin-top: 30px;
+}
+
+.info span {
+    font-size: 40px;
+    color:#FFD325;
+}
+
+.info-par {
+    padding-left: 120px;
+    width: 1000px;
+    text-align: center;
+}
+
+.invisible {
+    display: none;
+}
+
+.button-info {
+    margin-top: 50px;
+    margin-bottom: 70px;
+}
+
+
+/* ------------------------------------Footer---------------------------------------- */
+
+.footer {
+    background-color: #1D1D1D;
+    height: 400px;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+}
+
+.footer-social p {
+    margin-right: 20px;
+}
+
+.footer-social svg {
+    cursor: pointer;
+}
+
+.footer-social svg:not(:last-child) {
+    margin-right: 10px;
+}
+
+.footer-products {
+    max-width: 1000px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product a{
+    display: flex;
+    align-items: flex-end;
+}
+
+.product svg {
+    margin-bottom: 30px;
+}
+
+.footer-products p:hover {
+    color:#FFD325;
+}
+
+.product p {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.product ul {
+    padding: 0;
+}
+
+.product li {
+    margin-top: 5px;
+}
+
+.footer-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.f-info p{
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+.location {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
