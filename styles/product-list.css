@@ -50,6 +50,7 @@
 
 .cart-item img {
     width: 100px;
+    margin-right: 50px;
 }
 
 .cart-item p {
@@ -59,6 +60,33 @@
 
 .cart-item .price {
     color:#FFD325;
+}
+
+.ico-delete {
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.cart-item-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.cart-amount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 10px;
+    text-align: center;
+    top: 10px;
+    position: absolute;
+    background-color: #FFD325;
+    width: 15px;
+    height: 15px;
+    border-radius: 20px;
 }
 
 #clearBtn {
