@@ -65,11 +65,15 @@ addToCartButtons.forEach(button => {
         const productName = productContainer.querySelector(".name").innerHTML;
         const productPrice = productContainer.querySelector(".price").innerHTML;
         addToCart(productName, productImg, productPrice);
+        location.reload();
     });
 });
 
 function addToCart(name, img, price) {
-    cartItems.push({name, img, price });
+    const obj = {
+        name, img, price
+    }
+    cartItems.push(obj);
     saveCartToLocalStorage();
 }
 

@@ -1,4 +1,12 @@
-import { CartProduct } from "./classes/CartProduct"; 
+class CartProduct {
+    static productId = 0;
+    constructor(img, name, price) {
+        this.id = CartProduct.productId++;
+        this.img = img;
+        this.name = name;
+        this.price = price;
+    }
+}
 
 const cartBlock = document.querySelector('.cart-list');
 const emptyCart = document.querySelector('.empty-cart');
@@ -7,6 +15,7 @@ const cartAmount = document.querySelector('.cart-amount');
 
 const cartData = JSON.parse(localStorage.getItem('cart'));
 const cartDataArray = [];
+
 
 if(cartData !== null) {
     cartData.forEach(item => {
@@ -21,9 +30,7 @@ if(cartData !== null) {
     emptyCart.classList.remove('invisible');
 }
 
-console.log(cartDataArray);
-
-cartData.map(item => {
+cartDataArray.map(item => {
     cartBlock.innerHTML += `
                             <div class="cart-item">
                                 <div class="cart-item-info">
@@ -32,7 +39,7 @@ cartData.map(item => {
                                 </div>
                                 <div class="cart-item-info">
                                     <p class="price">${item.price}</p>
-                                    <svg class="ico-delete" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="30px" height="30px"><g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(10.66667,10.66667)"><path d="M10,2l-1,1h-6v2h1.10938l1.7832,15.25586v0.00781c0.13102,0.98666 0.98774,1.73633 1.98242,1.73633h8.24805c0.99468,0 1.8514,-0.74968 1.98242,-1.73633l0.00195,-0.00781l1.7832,-15.25586h1.10938v-2h-6l-1,-1zM6.125,5h11.75l-1.75195,15h-8.24805z"/></g></g></svg>
+                                    <svg data-product-id=${item.id} class="ico-delete" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="30px" height="30px"><g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(10.66667,10.66667)"><path d="M10,2l-1,1h-6v2h1.10938l1.7832,15.25586v0.00781c0.13102,0.98666 0.98774,1.73633 1.98242,1.73633h8.24805c0.99468,0 1.8514,-0.74968 1.98242,-1.73633l0.00195,-0.00781l1.7832,-15.25586h1.10938v-2h-6l-1,-1zM6.125,5h11.75l-1.75195,15h-8.24805z"/></g></g></svg>
                                 </div>     
                             </div>
     `;
@@ -43,11 +50,22 @@ const clearBtn = document.getElementById('clearBtn');
 
 deleteIcon.forEach(button => {
     button.addEventListener('click', () => {
-        console.log('deleted');
+        const productId = button.getAttribute('data-product-id');
+        deleteProduct(productId);
+        location.reload();
     })
 })
 
-console.log(deleteIcon);
+function deleteProduct(productId) {
+    const indexToDelete = cartDataArray.findIndex(product => product.id == productId);
+    if (indexToDelete !== -1) {
+      cartDataArray.splice(indexToDelete, 1);
+      localStorage.setItem('cart', JSON.stringify(cartDataArray));
+    }
+    if(cartDataArray.length == 0) {
+        localStorage.clear();
+    }
+}
 
 clearBtn.addEventListener('click', () => {
     const isConfirmed = confirm("Видалити вибрані?");
