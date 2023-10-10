@@ -13,74 +13,43 @@ app.listen(5000, () => {
 app.use(express.static(__dirname));
 
 app.get("/", (req, res) => {
-  const layout = fs.readFileSync(path.join(__dirname, 'pages', './layout.html'), 'utf8');
-  const content = fs.readFileSync(path.join(__dirname, 'pages', '/index.html'), 'utf8');
-  const renderedLayout = layout.replace('{{content}}', content);
-  res.send(renderedLayout);
+  res.send(getPage('./index.html'));
 });
 
 app.get("/iphones", (req, res) => {
-  
-    const layout = fs.readFileSync(path.join(__dirname, 'pages', './layout.html'), 'utf8');
-    const content = fs.readFileSync(path.join(__dirname, 'pages', '/iphones.html'), 'utf8');
-    const renderedLayout = layout.replace('{{content}}', content);
-    res.send(renderedLayout);
+    res.send(getPage('/iphones.html'));
 });
 
 app.get("/ipads", (req, res) => {
-  const layout = fs.readFileSync(path.join(__dirname, 'pages', './layout.html'), 'utf8');
-  const content = fs.readFileSync(path.join(__dirname, 'pages', '/ipads.html'), 'utf8');
-  const renderedLayout = layout.replace('{{content}}', content);
-  res.send(renderedLayout);
+  res.send(getPage('./ipads.html'));
 });
 
 app.get("/macs", (req, res) => {
-  const layout = fs.readFileSync(path.join(__dirname, 'pages', './layout.html'), 'utf8');
-  const content = fs.readFileSync(path.join(__dirname, 'pages', '/macs.html'), 'utf8');
-  const renderedLayout = layout.replace('{{content}}', content);
-  res.send(renderedLayout);
+  res.send(getPage('/macs.html'));
 });
 
 app.get("/gadgets", (req, res) => {
-  const layout = fs.readFileSync(path.join(__dirname, 'pages', './layout.html'), 'utf8');
-  const content = fs.readFileSync(path.join(__dirname, 'pages', '/gadgets.html'), 'utf8');
-  const renderedLayout = layout.replace('{{content}}', content);
-  res.send(renderedLayout);
+  res.send(getPage('./gadgets.html'));
 });
 
 app.get("/gadgets/air-pods", (req, res) => {
-  const layout = fs.readFileSync(path.join(__dirname, 'pages', './layout.html'), 'utf8');
-  const content = fs.readFileSync(path.join(__dirname, 'pages', '/air-pods.html'), 'utf8');
-  const renderedLayout = layout.replace('{{content}}', content);
-  res.send(renderedLayout);
+  res.send(getPage('/air-pods.html'));
 });
 
 app.get("/gadgets/watch", (req, res) => {
-  const layout = fs.readFileSync(path.join(__dirname, 'pages', './layout.html'), 'utf8');
-  const content = fs.readFileSync(path.join(__dirname, 'pages', '/watch.html'), 'utf8');
-  const renderedLayout = layout.replace('{{content}}', content);
-  res.send(renderedLayout);
+  res.send(getPage('/watch.html'));
 });
 
 app.get("/gadgets/air-tag", (req, res) => {
-  const layout = fs.readFileSync(path.join(__dirname, 'pages', './layout.html'), 'utf8');
-  const content = fs.readFileSync(path.join(__dirname, 'pages', '/air-tag.html'), 'utf8');
-  const renderedLayout = layout.replace('{{content}}', content);
-  res.send(renderedLayout);
+  res.send(getPage('/air-tag.html'));
 });
 
 app.get("/gadgets/acoustic", (req, res) => {
-  const layout = fs.readFileSync(path.join(__dirname, 'pages', './layout.html'), 'utf8');
-  const content = fs.readFileSync(path.join(__dirname, 'pages', '/acoustic.html'), 'utf8');
-  const renderedLayout = layout.replace('{{content}}', content);
-  res.send(renderedLayout);
+  res.send(getPage('/acoustic.html'));
 });
 
 app.get("/cart", (req, res) => {
-  const layout = fs.readFileSync(path.join(__dirname, 'pages', './layout.html'), 'utf8');
-  const content = fs.readFileSync(path.join(__dirname, 'pages', '/cart.html'), 'utf8');
-  const renderedLayout = layout.replace('{{content}}', content);
-  res.send(renderedLayout);
+  res.send(getPage('/cart.html'));
 })
 
 app.get('/get-product.js', (req, res) => {
@@ -88,8 +57,14 @@ app.get('/get-product.js', (req, res) => {
 });
 
 app.use(function(req, res) {
-  const layout = fs.readFileSync(path.join(__dirname, 'pages', './layout.html'), 'utf8');
-  const content = fs.readFileSync(path.join(__dirname, 'pages', './error.html'), 'utf8');
-  const renderedLayout = layout.replace('{{content}}', content);
-  res.status(404).send(renderedLayout);
+  res.status(404).send(getPage('./error.html'));
 });
+
+
+
+function getPage(link) {
+  const layout = fs.readFileSync(path.join(__dirname, 'pages', './layout.html'), 'utf8');
+  const content = fs.readFileSync(path.join(__dirname, 'pages', link), 'utf8');
+  const renderedLayout = layout.replace('{{content}}', content);
+  return renderedLayout;
+}
